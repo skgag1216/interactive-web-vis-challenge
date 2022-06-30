@@ -1,20 +1,22 @@
 const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
 
 d3.json(url).then(function(data) {
-    console.log(data);
-    
+    console.log(data);  
   });
 
-// bar chart
-var sampleData = [{
+
+  
+// bar chart, just a basic bar chart set up
+var barChartData = [{
   x: [0, 10, 20, 30, 40, 50],
   y: [0, 10, 20, 30, 40, 50],
-  type: 'bar'}];
+  type: 'bar',
+  orientation: 'h'}];
 var layout = {font: {size: 18}};
 var config = {responsive: true};
-Plotly.newPlot('bar', sampleData, layout, config);
+Plotly.newPlot('bar', barChartData, layout, config);
 
-// bubble chart
+// bubble chart, just a basic bubble chart set up
 // var sampleData = [{
 //   x: [0, 1, 2, 3, 4, 5],
 //   y: [0, 1, 15, 20, 30, 40],
@@ -28,4 +30,4 @@ Plotly.newPlot('bar', sampleData, layout, config);
 // var config = {
 //     responsive: true
 // };
-// Plotly.newPlot('bubble', data, layout, config);
+// Plotly.newPlot('bubble', sampleData, layout, config);
