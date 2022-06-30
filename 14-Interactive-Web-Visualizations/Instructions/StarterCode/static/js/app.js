@@ -4,17 +4,21 @@ d3.json(url).then(function(data) {
     console.log(data);  
   });
 
+  // start for changing selection in dropdown menu
+  //d3.selectAll("#selDataset").on("change", updatePlotly);
 
-  
 // bar chart, just a basic bar chart set up
-var barChartData = [{
-  x: [0, 10, 20, 30, 40, 50],
-  y: [0, 10, 20, 30, 40, 50],
-  type: 'bar',
-  orientation: 'h'}];
-var layout = {font: {size: 18}};
-var config = {responsive: true};
-Plotly.newPlot('bar', barChartData, layout, config);
+function initBarchart() {
+  var barChartData = [{
+    x: [0, 10, 20, 30, 40, 50],
+    y: [0, 10, 20, 30, 40, 50],
+    type: 'bar',
+    orientation: 'h'}];
+  var layout = {font: {size: 18}};
+  var config = {responsive: true};
+  Plotly.newPlot('bar', barChartData, layout, config);
+}
+initBarchart();
 
 // bubble chart, just a basic bubble chart set up
 // var sampleData = [{
