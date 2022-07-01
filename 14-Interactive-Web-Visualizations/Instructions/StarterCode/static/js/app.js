@@ -9,13 +9,12 @@ d3.json(url).then(function(data) {
       .enter()
     	.append('option')
       .text(function (d) { return d; }) // text showed in the menu
-      // .attr("value", function (d) { return d; }) // corresponding value returned by the button
     });
 
 // bar chart, just a basic bar chart set up
 function optionChanged(chosen) {
   d3.json(url).then(function(data) {
-    var allSamples = data.samples;
+    var allSamples = data.samples
     var otuIds = [];
     var otuLabels = [];
     var sampleValues = [];
@@ -28,13 +27,13 @@ function optionChanged(chosen) {
     });
 
     var barChartData = [{
-      x: sampleValues,
-      y: otuIds,
+      x: sampleValues.slice(0,10).reverse(),
+      y: otuIds.slice(0,10).map(otuID => `OTU ${otuID}`).reverse(),
       type: 'bar',
       orientation: 'h',
-      text: otuLabels
+      text: otuLabels.slice(0,10).reverse()
      }];
-    var layout = {font: {size: 18}};
+    var layout = {font: {size: 14}};
     var config = {responsive: true};
     Plotly.newPlot('bar', barChartData, layout, config);
   });
