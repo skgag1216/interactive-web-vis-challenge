@@ -34,8 +34,8 @@ function optionChanged(chosen) {
       text: otuLabels.slice(0,10).reverse()
      }];
     var layout = {font: {size: 14}};
-    var config = {responsive: true};
-    Plotly.newPlot('bar', barChartData, layout, config);
+    //var config = {responsive: true};
+    Plotly.newPlot('bar', barChartData, layout);
   });
 }
 
