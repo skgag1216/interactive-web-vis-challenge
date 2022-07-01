@@ -31,7 +31,9 @@ function optionChanged(chosen) {
       x: sampleValues,
       y: otuIds,
       type: 'bar',
-      orientation: 'h'}];
+      orientation: 'h',
+      text: otuLabels
+     }];
     var layout = {font: {size: 18}};
     var config = {responsive: true};
     Plotly.newPlot('bar', barChartData, layout, config);
