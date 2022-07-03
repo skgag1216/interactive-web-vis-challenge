@@ -14,17 +14,17 @@ d3.json(url).then(function(data) {
     });
 
 // // * denotes what was entered first, // ** is what's added second after function works with both charts
-function optionChanged(userChosen) {  //*
-  d3.json(url).then(function(data) { // *
-    var allSamples = data.samples // * 
-    var otuIds = []; // *
-    var otuLabels = []; // *
-    var sampleValues = []; // *
-    allSamples.forEach(function(row) { // *
-      if (row.id == userChosen) { // *
-        otuIds = row.otu_ids; // *
-        otuLabels = row.otu_labels; // *
-        sampleValues = row.sample_values; // *
+function optionChanged(userChosen) {  
+  d3.json(url).then(function(data) { 
+    var allSamples = data.samples 
+    var otuIds = []; 
+    var otuLabels = []; 
+    var sampleValues = []; 
+    allSamples.forEach(function(row) { 
+      if (row.id == userChosen) { 
+        otuIds = row.otu_ids; 
+        otuLabels = row.otu_labels; 
+        sampleValues = row.sample_values; 
       }
     });
     var allMetadata = data.metadata // **
@@ -36,7 +36,7 @@ function optionChanged(userChosen) {  //*
           demoPanel.append("p").text(`${key}: ${value}`);
         });
       }
-    });// **
+    });
 
 // bar chart, just a basic bar chart set up to fill in
     var barChartdata = [{
