@@ -42,11 +42,12 @@ function optionChanged(chosen) {
       x: otuIds.map(otuID => `${otuID}`),
       y: sampleValues,
       mode: 'markers',
-      //marker: { 
-        //size: sampleValues}
+      marker: { 
+        size: sampleValues,
+        color: otuIds },
+      text: otuLabels
     }];
     var layout = {font: {size: 14}};
-    var config = {responsive: true};
-    Plotly.newPlot('bubble', bubbleChartdata, layout, config);
+    Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
 }
