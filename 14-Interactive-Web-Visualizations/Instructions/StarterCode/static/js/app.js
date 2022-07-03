@@ -1,7 +1,7 @@
 // start by assigning a var to the url and reading in the data
 const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
 
-// read in the datat with d3 and .json and create a function to fill in the dropdown menu
+// read in the data with d3.json and create a function to fill in the dropdown menu
 d3.json(url).then(function(data) {
     console.log(data);
     var names = data.names;
@@ -13,7 +13,6 @@ d3.json(url).then(function(data) {
       .text(function (d) { return d; }) // text showed in the menu
     });
 
-// // * denotes what was entered first, // ** is what's added second after function works with both charts
 function optionChanged(userChosen) {  
   d3.json(url).then(function(data) { 
     var allSamples = data.samples 
@@ -27,7 +26,7 @@ function optionChanged(userChosen) {
         sampleValues = row.sample_values; 
       }
     });
-    var allMetadata = data.metadata // **
+    var allMetadata = data.metadata 
     allMetadata.forEach(function(row) {
       var demoPanel = d3.select(".panel-body");
       if (row.id == userChosen){
@@ -57,6 +56,7 @@ function optionChanged(userChosen) {
       x: 0.05
     }};
     Plotly.newPlot('bar', barChartdata, layout);
+    
     // bubble chart, just a basic bubble chart set up to fill in
     var bubbleChartdata = [{
       x: otuIds.map(otuID => `${otuID}`),
