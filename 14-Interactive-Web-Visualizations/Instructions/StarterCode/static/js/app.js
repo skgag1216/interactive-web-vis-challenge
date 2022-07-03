@@ -39,11 +39,11 @@ function optionChanged(chosen) {
 
     // bubble chart, just a basic bubble chart set up
     var bubbleChartdata = [{
-      x: sampleValues.slice(0,10).reverse(),
-      y: otuIds.slice(0,10).map(otuID => `OTU ${otuID}`).reverse(),
+      x: otuIds.map(otuID => `${otuID}`),
+      y: sampleValues,
       mode: 'markers',
-      marker: { 
-        size: sampleValues.slice(0,10).reverse() }
+      //marker: { 
+        //size: sampleValues}
     }];
     var layout = {font: {size: 14}};
     var config = {responsive: true};
