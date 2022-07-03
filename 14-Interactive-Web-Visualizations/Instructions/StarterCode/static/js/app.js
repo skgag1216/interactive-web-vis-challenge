@@ -28,17 +28,15 @@ function optionChanged(userChosen) {  //*
       }
     });
     var allMetadata = data.metadata // **
-    // var age = [];
-    // var bbtype = [];
-    // var ethnicity = [];
-    // var gender = [];
-    // var id = [];
-    // var location = [];
-    // var wfreq = [];
-      allMetadata.forEach(function(row) { // **
-        if (row.id == userChosen)
-          console.log(d3.values(row)) // ** 
-      });// **
+    allMetadata.forEach(function(row) {
+      var demoPanel = d3.select(".panel-body");
+      if (row.id == userChosen){
+        demoPanel.html("");
+        Object.entries(row).forEach(function([key, value]){
+          demoPanel.append("p").text(`${key}: ${value}`);
+        });
+      }
+    });// **
 
 // bar chart, just a basic bar chart set up to fill in
     var barChartdata = [{
@@ -101,4 +99,5 @@ function optionChanged(userChosen) {  //*
     }};
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
+  
 }
