@@ -37,8 +37,7 @@ function optionChanged(userChosen) {  //*
     // var wfreq = [];
       allMetadata.forEach(function(row) { // **
         if (row.id == userChosen)
-          console.log(d3.keys(row),
-          console.log(d3.values(row))) // ** 
+          console.log(d3.values(row)) // ** 
       });// **
 
 // bar chart, just a basic bar chart set up to fill in
