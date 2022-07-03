@@ -28,14 +28,14 @@ function optionChanged(userChosen) {
     });
     var allMetadata = data.metadata 
     allMetadata.forEach(function(row) {
-      var washFreq = []
+      var washFreq = [];
       var demoPanel = d3.select(".panel-body");
       if (row.id == userChosen){
+        washFreq = row.wfreq;
         demoPanel.html("");
         Object.entries(row).forEach(function([key, value]){
           demoPanel.append("p").text(`${key}: ${value}`);
         });
-        washFreq = row.wfreq;
       }
     });
 
@@ -102,35 +102,33 @@ function optionChanged(userChosen) {
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
   //////// guage chart
-    var washGauge = [
-      {
-        type: "indicator",
-        mode: "gauge+number",
-        value: washFreq,
-        title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
-        gauge: {
-          axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
-          bar: { color: "darkblue" },
-          bgcolor: "white",
-          borderwidth: 2,
-          bordercolor: "gray",
-          title: { text: 'Times per week', font: { size: 16} },
-          steps: [
-            { range: [0, 1], color: '#33cc33' },
-            { range: [1, 2], color: '#66ff99' },
-            { range: [2, 3], color: '#66ffcc' },
-            { range: [3, 4], color: '#66ffff' },
-            { range: [4, 5], color: '#33ccff' },
-            { range: [5, 6], color: '#0099ff' },
-            { range: [6, 7], color: '#00ccff' },
-            { range: [7, 8], color: '#33cccc' },
-            { range: [8, 9], color: '#009999' },
-            { range: [9, 10], color: '#003366' }
-          ]
-        }
-      }
-    ];
-    
+    // var washGauge = [
+    //   {
+    //     type: "indicator",
+    //     mode: "gauge+number",
+    //     value: washFreq,
+    //     title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+    //     gauge: {
+    //       axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
+    //       bar: { color: "darkblue" },
+    //       bgcolor: "white",
+    //       borderwidth: 2,
+    //       bordercolor: "gray",
+    //       title: { text: 'Times per week', font: { size: 16} },
+    //       steps: [
+    //         { range: [0, 1]},
+    //         { range: [1, 2]},
+    //         { range: [2, 3]},
+    //         { range: [3, 4]},
+    //         { range: [4, 5]},
+    //         { range: [5, 6]},
+    //         { range: [6, 7]},
+    //         { range: [7, 8]},
+    //         { range: [8, 9]},
+    //         { range: [9, 10]}
+    //       ]
+    //     }
+    //   }];
     Plotly.newPlot('gauge', washGauge, layout);
 // ////////
 
