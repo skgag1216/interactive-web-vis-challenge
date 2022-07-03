@@ -56,7 +56,7 @@ function optionChanged(userChosen) {
       x: 0.05
     }};
     Plotly.newPlot('bar', barChartdata, layout);
-    
+
     // bubble chart, just a basic bubble chart set up to fill in
     var bubbleChartdata = [{
       x: otuIds.map(otuID => `${otuID}`),
