@@ -26,7 +26,7 @@ function optionChanged(chosen) {
       }
     });
 
-    var barChartData = [{
+    var barChartdata = [{
       x: sampleValues.slice(0,10).reverse(),
       y: otuIds.slice(0,10).map(otuID => `OTU ${otuID}`).reverse(),
       type: 'bar',
@@ -35,23 +35,18 @@ function optionChanged(chosen) {
      }];
     var layout = {font: {size: 14}};
     //var config = {responsive: true};
-    Plotly.newPlot('bar', barChartData, layout);
+    Plotly.newPlot('bar', barChartdata, layout);
+
+    // bubble chart, just a basic bubble chart set up
+    var bubbleChartdata = [{
+      x: sampleValues.slice(0,10).reverse(),
+      y: otuIds.slice(0,10).map(otuID => `OTU ${otuID}`).reverse(),
+      mode: 'markers',
+      marker: { 
+        size: sampleValues.slice(0,10).reverse() }
+    }];
+    var layout = {font: {size: 14}};
+    var config = {responsive: true};
+    Plotly.newPlot('bubble', bubbleChartdata, layout, config);
   });
 }
-
-
-// bubble chart, just a basic bubble chart set up
-// var sampleData = [{
-//   x: [0, 1, 2, 3, 4, 5],
-//   y: [0, 1, 15, 20, 30, 40],
-//   mode: 'markers',
-//   marker: {
-//     color: ['red', 'black',  'blue', 'grey', 'red'],
-//     size: [50, 100, 150, 50, 50]
-//   }
-// }];
-// var layout = {font: {size: 18}};
-// var config = {
-//     responsive: true
-// };
-// Plotly.newPlot('bubble', sampleData, layout, config);
