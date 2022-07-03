@@ -33,8 +33,16 @@ function optionChanged(chosen) {
       orientation: 'h',
       text: otuLabels.slice(0,10).reverse()
      }];
-    var layout = {font: {size: 14}};
-    //var config = {responsive: true};
+    var layout = {font: {size: 14},
+    title: {
+      text: 'Top 10 OTUs',
+      font: {
+        family: 'Arial, monospace',
+        size: 24
+      },
+      xref: 'paper',
+      x: 0.05
+    }};
     Plotly.newPlot('bar', barChartdata, layout);
 
     // bubble chart, just a basic bubble chart set up
@@ -47,7 +55,36 @@ function optionChanged(chosen) {
         color: otuIds },
       text: otuLabels
     }];
-    var layout = {font: {size: 14}};
+    var layout = {font: {size: 14},
+    title: {
+      text:'All OTU Sample Data',
+      font: {
+        family: 'Arial, monospace',
+        size: 24
+      },
+      xref: 'paper',
+      x: 0.05,
+    },
+    xaxis: {
+      title: {
+        text: 'OTU ID #',
+        font: {
+          family: 'Arial, monospace',
+          size: 18,
+          color: '#7f7f7f'
+        }
+      },
+    },
+    yaxis: {
+      title: {
+        text: 'Amount in Sample',
+        font: {
+          family: 'Arial, monospace',
+          size: 18,
+          color: '#7f7f7f'
+        }
+      }
+    }};
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
 }
