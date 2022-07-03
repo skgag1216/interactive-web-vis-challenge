@@ -27,8 +27,8 @@ function optionChanged(userChosen) {
       }
     });
     var allMetadata = data.metadata 
-    var washFreq = [];
     allMetadata.forEach(function(row) {
+      var washFreq = []
       var demoPanel = d3.select(".panel-body");
       if (row.id == userChosen){
         demoPanel.html("");
@@ -102,7 +102,7 @@ function optionChanged(userChosen) {
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
   //////// guage chart
-    var data = [
+    var washGauge = [
       {
         type: "indicator",
         mode: "gauge+number",
@@ -116,28 +116,22 @@ function optionChanged(userChosen) {
           bordercolor: "gray",
           title: { text: 'Times per week', font: { size: 16} },
           steps: [
-            { range: [0, 250], color: "cyan" },
-            { range: [250, 400], color: "royalblue" }
-          ],
-          threshold: {
-            line: { color: "red", width: 4 },
-            thickness: 0.75,
-            value: 490
-          }
+            { range: [0, 1], color: '#33cc33' },
+            { range: [1, 2], color: '#66ff99' },
+            { range: [2, 3], color: '#66ffcc' },
+            { range: [3, 4], color: '#66ffff' },
+            { range: [4, 5], color: '#33ccff' },
+            { range: [5, 6], color: '#0099ff' },
+            { range: [6, 7], color: '#00ccff' },
+            { range: [7, 8], color: '#33cccc' },
+            { range: [8, 9], color: '#009999' },
+            { range: [9, 10], color: '#003366' }
+          ]
         }
       }
     ];
     
-    var layout = {
-      width: 500,
-      height: 400,
-      margin: { t: 25, r: 25, l: 25, b: 25 },
-      paper_bgcolor: "lavender",
-      font: { color: "darkblue", family: "Arial" }
-    };
-    
-    Plotly.newPlot('myDiv', data, layout);
-
+    Plotly.newPlot('gauge', washGauge, layout);
 // ////////
 
 }
