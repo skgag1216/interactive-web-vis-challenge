@@ -27,6 +27,7 @@ function optionChanged(userChosen) {
       }
     });
     var allMetadata = data.metadata 
+    var washFreq = [];
     allMetadata.forEach(function(row) {
       var demoPanel = d3.select(".panel-body");
       if (row.id == userChosen){
@@ -34,6 +35,7 @@ function optionChanged(userChosen) {
         Object.entries(row).forEach(function([key, value]){
           demoPanel.append("p").text(`${key}: ${value}`);
         });
+        washFreq = row.wfreq;
       }
     });
 
@@ -99,5 +101,43 @@ function optionChanged(userChosen) {
     }};
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
-  
+  //////// guage chart
+    var data = [
+      {
+        type: "indicator",
+        mode: "gauge+number",
+        value: washFreq,
+        title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+        gauge: {
+          axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
+          bar: { color: "darkblue" },
+          bgcolor: "white",
+          borderwidth: 2,
+          bordercolor: "gray",
+          title: { text: 'Times per week', font: { size: 16} },
+          steps: [
+            { range: [0, 250], color: "cyan" },
+            { range: [250, 400], color: "royalblue" }
+          ],
+          threshold: {
+            line: { color: "red", width: 4 },
+            thickness: 0.75,
+            value: 490
+          }
+        }
+      }
+    ];
+    
+    var layout = {
+      width: 500,
+      height: 400,
+      margin: { t: 25, r: 25, l: 25, b: 25 },
+      paper_bgcolor: "lavender",
+      font: { color: "darkblue", family: "Arial" }
+    };
+    
+    Plotly.newPlot('myDiv', data, layout);
+
+// ////////
+
 }
