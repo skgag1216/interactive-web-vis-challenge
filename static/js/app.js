@@ -110,7 +110,7 @@ function optionChanged(userChosen) {
       mode: "gauge+number",
       title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
       gauge: {
-        axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
+        axis: { range: [null, 9], tickwidth: 1, tickcolor: "darkblue" },
         bar: { color: "darkblue" },
         steps: [
           { range: [0, 1], color: "rgb(153, 0, 255)"},
@@ -121,8 +121,7 @@ function optionChanged(userChosen) {
           { range: [5, 6], color: "rgb(102, 204, 255)"},
           { range: [6, 7], color: "rgb(102, 255, 255)"},
           { range: [7, 8], color: "rgb(102, 255, 204)"},
-          { range: [8, 9], color: "rgb(0, 255, 153)"},
-          { range: [9, 10], color: "rgb(0, 255, 0)"}
+          { range: [8, 9], color: "rgb(0, 255, 153)"}
         ]
       }
     }];
