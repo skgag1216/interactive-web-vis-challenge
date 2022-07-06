@@ -28,13 +28,10 @@ function optionChanged(userChosen) {
     });
     var allMetadata = data.metadata 
     allMetadata.forEach(function(row) {
-      var washFreq = []
       var demoPanel = d3.select(".panel-body");
       var numwashtest = d3.select("#washtest")
       if (row.id == userChosen){
-        washFreq.pop();
-        washFreq = row.wfreq;
-        numWashes = parseInt(washFreq);
+        numWashes = parseInt(row.wfreq);
         numwashtest.html("");
         numwashtest.append("p").text(numWashes)
         demoPanel.html("");
@@ -107,31 +104,29 @@ function optionChanged(userChosen) {
     Plotly.newPlot('bubble', bubbleChartdata, layout);
   });
   //////// guage chart
-    var washGauge = [
-      {
-        value: numWashes,
-        type: "indicator",
-        mode: "gauge+number",
-        title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
-        gauge: {
-          axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
-          bar: { color: "darkblue" },
-          steps: [
-            { range: [0, 1], color: "rgb(153, 0, 255)"},
-            { range: [1, 2], color: "rgb(153, 51, 255)"},
-            { range: [2, 3], color: "rgb(153, 102, 255)"},
-            { range: [3, 4], color: "rgb(153, 153, 255)"},
-            { range: [4, 5], color: "rgb(153, 204, 255)"},
-            { range: [5, 6], color: "rgb(102, 204, 255)"},
-            { range: [6, 7], color: "rgb(102, 255, 255)"},
-            { range: [7, 8], color: "rgb(102, 255, 204)"},
-            { range: [8, 9], color: "rgb(0, 255, 153)"},
-            { range: [9, 10], color: "rgb(0, 255, 0)"}
-          ]
-        }
-      }];
-    var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    var washGauge = [{
+      value: numWashes,
+      type: "indicator",
+      mode: "gauge+number",
+      title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+      gauge: {
+        axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
+        bar: { color: "darkblue" },
+        steps: [
+          { range: [0, 1], color: "rgb(153, 0, 255)"},
+          { range: [1, 2], color: "rgb(153, 51, 255)"},
+          { range: [2, 3], color: "rgb(153, 102, 255)"},
+          { range: [3, 4], color: "rgb(153, 153, 255)"},
+          { range: [4, 5], color: "rgb(153, 204, 255)"},
+          { range: [5, 6], color: "rgb(102, 204, 255)"},
+          { range: [6, 7], color: "rgb(102, 255, 255)"},
+          { range: [7, 8], color: "rgb(102, 255, 204)"},
+          { range: [8, 9], color: "rgb(0, 255, 153)"},
+          { range: [9, 10], color: "rgb(0, 255, 0)"}
+        ]
+      }
+    }];
+    var layout = { width: 500, height: 400, margin: { t: 0, b: 0 } };
     Plotly.newPlot('gauge', washGauge, layout);
-// ////////
 
 }
